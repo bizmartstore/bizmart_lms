@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bizmart LMS Embedded</title>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
       html, body {
         margin: 0;
         padding: 0;
-        width: 100%;
         height: 100%;
+        width: 100%;
         overflow: hidden;
         font-family: Arial, sans-serif;
+        touch-action: none; /* prevent pinch-zoom on mobile */
       }
 
       .iframe-container {
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: 100%;
+        overflow: hidden;
       }
 
-      iframe {
+      /* Iframe fills the container minus footer */
+      .main-iframe {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: calc(100% - 80px); /* leave space for footer */
         border: none;
+        pointer-events: auto; /* allow interactions inside iframe */
+      }
+
+      /* FOOTER */
+      .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 130px; /* same as before */
+        background-color: white;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        font-weight: bold;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* optional */
       }
     </style>
   </head>
   <body>
     <div class="iframe-container">
-      <iframe 
-        src="https://script.google.com/macros/s/AKfycbyH152o5tea6KXaKjZdzGK0wLrO6rKF0Q8itCuRgAcP16EdbxPNwAaBXIvsa2CtjWuE/exec" 
+      <iframe class="main-iframe" 
+        src="https://my-site-yg72oli3-virtualis003.wix-vibe.com" 
         allowfullscreen>
       </iframe>
-    </div>
 
-    <script>
-      // Optional: dynamically resize iframe to fill viewport on mobile
-      function resizeIframe() {
-        const iframe = document.querySelector('iframe');
-        iframe.style.width = window.innerWidth + 'px';
-        iframe.style.height = window.innerHeight + 'px';
-      }
-      window.addEventListener('resize', resizeIframe);
-      window.addEventListener('load', resizeIframe);
-    </script>
+      <div class="footer">
+        © 2025 Bizmart LMS
+      </div>
+    </div>
   </body>
 </html>
