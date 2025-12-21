@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base target="_top">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-        font-family: Arial, sans-serif;
-        touch-action: none; /* prevent pinch-zoom on mobile */
-      }
+<head>
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
 
-      .iframe-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 
-      /* Normal iframe without zoom */
-      .main-iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        pointer-events: auto; /* allow interactions inside iframe */
-        transform: none; /* remove scaling */
-        transform-origin: top center;
-      }
+    /* Responsive iframe filling available space above footer */
+    .main-iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+      pointer-events: auto;
+    }
 
-      /* FOOTER */
+    /* FOOTER */
+    .footer {
+      height: 60px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* subtle shadow for separation */
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
       .footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 80px;
-        background-color: white;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        font-weight: bold;
+        font-size: 16px;
+        height: 50px;
       }
-    </style>
-  </head>
-  <body>
-    <div class="iframe-container">
-      <iframe class="main-iframe" 
-        src="https://my-site-yg72oli3-virtualis003.wix-vibe.com" 
-        allowfullscreen>
-      </iframe>
+    }
+  </style>
+</head>
+<body>
+  <div class="iframe-container">
+    <iframe class="main-iframe" 
+      src="https://my-site-yg72oli3-virtualis003.wix-vibe.com" 
+      allowfullscreen>
+    </iframe>
 
-      <div class="footer">
-        © 2025 Bizmart LMS
-      </div>
+    <div class="footer">
+      © 2025 Bizmart LMS
     </div>
-  </body>
+  </div>
+</body>
 </html>
