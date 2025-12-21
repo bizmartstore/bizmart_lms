@@ -1,27 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIZMART LMS</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-    }
-    iframe {
-      border: none;
-      width: 100%;
-      height: 100vh; /* full viewport height */
-    }
-  </style>
-</head>
-<body>
-  <iframe src="https://script.google.com/macros/s/AKfycbyH152o5tea6KXaKjZdzGK0wLrO6rKF0Q8itCuRgAcP16EdbxPNwAaBXIvsa2CtjWuE/exec" 
-          title="Google App Script Web App">
-  </iframe>
-</body>
-</html>
+<html>
+  <head>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        touch-action: none; /* prevent pinch-zoom on mobile */
+      }
 
+      .iframe-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      /* Fixed iframe with enforced scale */
+      .main-iframe {
+        position: absolute;
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%) scale(3);
+        transform-origin: top center;
+        width: calc(100% / 3);
+        height: calc((100% + 120px) / 3);
+        border: none;
+        pointer-events: auto; /* allow interactions inside iframe */
+      }
+
+      /* FOOTER */
+      .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background-color: white;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="iframe-container">
+      <iframe class="main-iframe" 
+        src="https://my-site-yg72oli3-virtualis003.wix-vibe.com" 
+        allowfullscreen>
+      </iframe>
+
+      <div class="footer">
+        © 2025 Bizmart LMS
+      </div>
+    </div>
+  </body>
+</html>
